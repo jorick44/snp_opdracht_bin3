@@ -23,6 +23,6 @@ def score(alignments, pos, key):
         else:
             mutant = alignment.seq[pos]
     if mutant not in count.keys():
-        count[mutant] = 0
+        count[mutant] = 1
     unique = len(count.keys()) - 1
     return 1 + 9*(unique/count[mutant])

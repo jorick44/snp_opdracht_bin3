@@ -5,11 +5,11 @@ makes unaligned fastas and aligns them using Clustalo
 
 __author__ = "Jorick Baron"
 
-import sys
-from Bio.Align.Applications import ClustalOmegaCommandline
-from Bio import AlignIO
-import subprocess
 import os
+import subprocess
+
+from Bio import AlignIO
+from Bio.Align.Applications import ClustalOmegaCommandline
 
 # globals
 in_file = "data/unalinged.fasta"
@@ -36,6 +36,8 @@ def mk_file(genes):
     """
     makes the required files and fills the unaligned file with the found genes
     """
+    if not os.path.isdir("data"):
+        os.mkdir("data")
     if not os.path.isfile(out_file):
         subprocess.run(["touch", out_file])  # make sure the alignment file exists
     print("making unaligned fasta...")
