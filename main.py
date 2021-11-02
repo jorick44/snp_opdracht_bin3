@@ -12,7 +12,6 @@ import argparse
 import MSA_retriever
 import score
 from genes import Genes
-from MSA_retriever import mk_file, align
 
 
 # Global variables
